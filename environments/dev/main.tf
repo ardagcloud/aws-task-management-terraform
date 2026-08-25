@@ -34,3 +34,13 @@ module "compute" {
   ec2_sg_id              = module.security.ec2_sg_id
   target_group_arn       = module.alb.target_group_arn
 }
+
+
+# RDS Module
+module "rds" {
+  source = "../../modules/rds"
+
+  project_name          = var.project_name
+  private_db_subnet_ids = module.vpc.private_db_subnet_ids
+  rds_sg_id             = module.security.rds_sg_id
+}
