@@ -33,6 +33,7 @@ module "compute" {
   private_app_subnet_ids = module.vpc.private_app_subnet_ids
   ec2_sg_id              = module.security.ec2_sg_id
   target_group_arn       = module.alb.target_group_arn
+  instance_profile_name  = module.iam.instance_profile_name
 }
 
 
@@ -43,4 +44,12 @@ module "rds" {
   project_name          = var.project_name
   private_db_subnet_ids = module.vpc.private_db_subnet_ids
   rds_sg_id             = module.security.rds_sg_id
+}
+
+# IAM Module
+module "iam" {
+  source = "../../modules/iam"
+
+  project_name   = var.project_name
+  rds_secret_arn = module.rds.master_user_secret_arn
 }

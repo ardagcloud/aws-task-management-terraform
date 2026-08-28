@@ -6,6 +6,11 @@ resource "aws_launch_template" "app" {
 
   vpc_security_group_ids = [var.ec2_sg_id]
 
+  # IAM Instance Profile
+  iam_instance_profile {
+    name = var.instance_profile_name
+  }
+
   user_data = base64encode(file("${path.module}/user_data.sh"))
 
   tag_specifications {

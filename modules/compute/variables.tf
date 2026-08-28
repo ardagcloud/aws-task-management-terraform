@@ -23,3 +23,9 @@ variable "instance_type" {
   description = "EC2 instance type"
   default     = "t3.micro"
 }
+
+# EC2 Instance Profile Name
+variable "instance_profile_name" {
+  type        = string
+  description = "IAM instance profile name for EC2"
+}
