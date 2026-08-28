@@ -12,3 +12,8 @@ output "db_port" {
 output "master_user_secret_arn" {
   value = aws_db_instance.main.master_user_secret[0].secret_arn
 }
+
+# RDS Instance ID
+output "rds_instance_id" {
+  value = aws_db_instance.main.identifier
+}

@@ -53,3 +53,14 @@ module "iam" {
   project_name   = var.project_name
   rds_secret_arn = module.rds.master_user_secret_arn
 }
+
+# Monitoring Module
+module "monitoring" {
+  source = "../../modules/monitoring"
+
+  project_name            = var.project_name
+  asg_name                = module.compute.asg_name
+  rds_instance_id         = module.rds.rds_instance_id
+  alb_arn_suffix          = module.alb.alb_arn_suffix
+  target_group_arn_suffix = module.alb.target_group_arn_suffix
+}
