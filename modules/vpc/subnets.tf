@@ -68,7 +68,7 @@ resource "aws_subnet" "private_db_b" {
   tags = {
     Name = "${var.project_name}-private-db-b"
   }
-} 
+}
 
 
 
