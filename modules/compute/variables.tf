@@ -29,3 +29,15 @@ variable "instance_profile_name" {
   type        = string
   description = "IAM instance profile name for EC2"
 }
+
+# RDS Endpoint
+variable "db_endpoint" {
+  type        = string
+  description = "RDS database endpoint"
+}
+
+# RDS Secret ARN
+variable "rds_secret_arn" {
+  type        = string
+  description = "ARN of the RDS master credential secret"
+}

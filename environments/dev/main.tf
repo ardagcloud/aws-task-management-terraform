@@ -34,6 +34,8 @@ module "compute" {
   ec2_sg_id              = module.security.ec2_sg_id
   target_group_arn       = module.alb.target_group_arn
   instance_profile_name  = module.iam.instance_profile_name
+  db_endpoint            = module.rds.db_endpoint
+  rds_secret_arn         = module.rds.master_user_secret_arn
 }
 
 

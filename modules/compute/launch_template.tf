@@ -11,7 +11,10 @@ resource "aws_launch_template" "app" {
     name = var.instance_profile_name
   }
 
-  user_data = base64encode(file("${path.module}/user_data.sh"))
+  user_data = base64encode(templatefile("${path.module}/user_data.sh", {
+    db_endpoint    = var.db_endpoint
+    rds_secret_arn = var.rds_secret_arn
+  }))
 
   tag_specifications {
     resource_type = "instance"

@@ -119,3 +119,16 @@ resource "aws_vpc_security_group_egress_rule" "ec2_https" {
 
   description = "Allow HTTPS outbound from EC2"
 }
+
+
+# Allow HTTP from Internet
+resource "aws_vpc_security_group_ingress_rule" "alb_http" {
+  security_group_id = aws_security_group.alb.id
+
+  cidr_ipv4   = "0.0.0.0/0"
+  from_port   = 80
+  to_port     = 80
+  ip_protocol = "tcp"
+
+  description = "Allow HTTP from the internet"
+}
