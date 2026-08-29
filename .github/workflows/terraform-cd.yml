@@ -19,6 +19,7 @@ permissions:
 env:
   AWS_REGION: us-east-1
   TF_VAR_project_name: taskmanagement
+  TF_VAR_vpc_cidr: "10.0.0.0/16"
 
 jobs:
   deploy:
