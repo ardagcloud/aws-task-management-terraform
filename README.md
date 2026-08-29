@@ -73,7 +73,7 @@ Two EC2 application servers run inside the private application subnets through a
 
 Amazon RDS PostgreSQL runs privately using a Multi-AZ configuration across the database tier.
 
-![VPC Resource Map](docs/screenshots/vpc-resource-map.png)
+![VPC Resource Map](docs/screenshots/vpc-resource-map-blurred.png)
 
 ---
 
